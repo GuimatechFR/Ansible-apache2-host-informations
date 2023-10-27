@@ -1,0 +1,11 @@
+---
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  children:
+    master:
+      hosts:
+        10.44.101.166:
+    slave:
+      hosts:
+        10.44.101.164:
