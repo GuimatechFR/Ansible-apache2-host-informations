@@ -1,0 +1,21 @@
+---
+- name: Installer Apache et afficher les informations du serveur
+  hosts: all
+  tasks:
+    - name: Installer Apache2
+      apt:
+        name: apache2
+        state: present
+      notify: 
+        - Démarrer Apache
+
+    - name: Déployer la page d'information du serveur basée sur le modèle Jinja2
+      template:
+        src: info.html.j2
+        dest: /var/www/html/index.html
+
+  handlers:
+    - name: Démarrer Apache
+      service:
+        name: apache2
+        state: started
