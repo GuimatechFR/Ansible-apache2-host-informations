@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Informations {{ ansible_hostname }}</title>
 </head>
 <body>
-<h1>Informations {{ ansible_hostname }}</h1>
+    <h1>Informations sur le serveur</h1>
     <ul>
         <li>Nom du serveur: {{ ansible_hostname }}</li>
-	<li>Distribution: {{ ansible_distribution }} {{ ansible_distribution_release }} {{ansible_distribution_version }} </li >
+        <li>Distribution: {{ ansible_distribution }}</li>
+        <li>Version de la distribution: {{ ansible_distribution_version }}</li>
         <li>Version du noyau: {{ ansible_kernel }}</li>
         <li>Nombre de cœurs du processeur: {{ ansible_processor_cores }}</li>
         <li>Mémoire vive totale: {{ (ansible_memtotal_mb)}} MB</li>
-	<li>Carte réseau: {{ ansible_default_ipv4.interface }}</li>
-	<li>Adresse MAC: {{ ansible_default_ipv4.macaddress }}</li>
+        <!-- Ajoutez d'autres informations si nécessaire -->
     </ul>
 </body>
 </html>
