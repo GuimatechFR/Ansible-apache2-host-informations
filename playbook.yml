@@ -15,10 +15,22 @@
         src: index.html.j2
         dest: /var/www/html/index.html
 
-    - name: Déployer la page css
+    - name: Vérifier si le fichier styles.css existe
+      stat:
+        path: /var/www/html/styles.css
+      register: file_stat
+
+    - name: Copier styles.css s'il n'existe pas
       copy:
         src: styles.css
-        dest: /var/www/html/
+        dest: /var/www/html/styles.css
+      when: not file_stat.stat.exists
+
+    - name: Appliquer le template Jinja2 si styles.css existe
+      template:
+        src: styles.j2
+        dest: /var/www/html/styles.css
+      when: file_stat.stat.exists
 
   handlers:
     - name: Démarrer Apache
