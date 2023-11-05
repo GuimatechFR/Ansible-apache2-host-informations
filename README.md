@@ -6,6 +6,7 @@ Ce dépôt contient un playbook Ansible conçu pour installer le serveur web Apa
 
 - **Installation d'Apache**: Automatise le processus d'installation du serveur web Apache (Apache2).
 - **Déploiement de la page d'informations**: Utilise un modèle Jinja2 pour créer et déployer une page HTML personnalisée qui présente les informations du serveur.
+- **Gestion des fichiers CSS**: Vérifie et copie ou met à jour le fichier styles.css en fonction de son existence.
 - **Déployer la page css**: Copie la feuille de style styles.css dans le dossier racine du serveur web.
 
 ## Prérequis
