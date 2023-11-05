@@ -1,4 +1,4 @@
-# Apache Server Ansible Playbook
+# Ansible apache2 server with host informations
 
 Ce dépôt contient un playbook Ansible conçu pour installer le serveur web Apache (Apache2) sur des systèmes Linux et déployer une page web affichant les informations du serveur.
 
