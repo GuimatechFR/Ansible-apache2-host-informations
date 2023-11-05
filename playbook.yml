@@ -1,6 +1,7 @@
 ---
 - name: Installer Apache et afficher les informations du serveur
   hosts: all
+  become: yes  # Utilisez sudo pour obtenir des privilèges d'administrateur
   tasks:
     - name: Installer Apache2
       apt:
@@ -9,10 +10,15 @@
       notify: 
         - Démarrer Apache
 
-    - name: Déployer la page d'information du serveur basée sur le modèle Jinja2
+    - name: Déployer la page html
       template:
-        src: info.html.j2
+        src: index.html.j2
         dest: /var/www/html/index.html
+
+    - name: Déployer la page css
+      copy:
+        src: styles.css
+        dest: /var/www/html/
 
   handlers:
     - name: Démarrer Apache
